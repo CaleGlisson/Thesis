@@ -1,7 +1,12 @@
 \chapter{Introduction}
 Computer systems are becoming more heterogenous in their nature, including not just a typical microprocessors, but also hardware accelerators in some form or another. This allows system designers to pick and choose which portions of their program will be accelerated by the hardware, while keeping non-critical components simple. 
+
 One option in these systems is to use a Field Programmable Gate Array (FPGA) for the hardware portion, which allows for a Hardware Description Language (HDL) to be used to implement the hardware, rather than using discrete hardware accelerators. This means that in addition to the typical C or C++ code for the microprocessor, HDL code must be written for the FPGA acceleration as well as an interface between these two portions. While this gives the design incredible flexibility and control, the interface between the hardware and software is incredibly complex, and can create almost impossible to debug errors in any non trivial system. This often causes longer development cycles, and requires extremely specialized developers which means that less efficient solutions are chosen over this path.
+
 Twill was created to simplify the development cycle, while also taking advantage of parallelization to increase performance. Twill takes a single threaded C code as an input, transforms part of that C program into hardware, and also provides the communication system between the hardware and software.
+
 As Twill is solving such a complex problem, it in itself presents a complex tool chain, consisting of many individual portions, some automated, others not. With a lack of proper documentation of the system and the workflow, the toolchain becomes almost impossible to use properly and many issues arise.
+
 The major contribution to the Twill project here will be providing that documentation, and elaborating more on some subtle details that were not discussed in the original Twill paper. 
+
 The remainder of this thesis is organized as follows: Chapter 2 provides a brief history of some other hybrid systems, as well as a broad overview of Twill itself. Chapter 3 will present the description of some of the more intimate details of Twill, while Chapter 4 will discuss the workflow. Chapter 5 will present the areas that prevented the Twill toolchain from being run to completion and Chapter 6 will present some future work on documenting Twill as well as work on Twill itself.
