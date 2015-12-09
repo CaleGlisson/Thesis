@@ -1,1 +1,12 @@
-Goodbye
+\chapter{Previous Work}
+This section will give an overview of the design of the Twill compiler, and then go in depth into the differing components of it.
+\section{Twill}
+Twill was designed to take a single threaded C program and extract both Thread Level Parallelism (TLP) and Instruction Level Parallelism (ILP) in order to take advantage of the tightly coupled nature of a CPU/FPGA hybrid system.
+\subsection{Twill Dependencies}
+Twill takes advantage of a large amount of previous work. It uses a modified version of Distributed Software Pipelining (DSWP) [TODO: DSWP SOURCE] in order to find and extract TLP. It also relies on LegUp [TODO: LEGUP SOURCE] for finding the ILP in the threads extracted by DSWP and then to translate those threads into HDL. Both LegUp and Twill's custom DSWP implementation are implemented as extensions for the LLVM Compiler Framework [TODO: LLVM SOURCE]. Twill also uses a custome runtime system based on the hThreads project [TODO: hThreads source]. It also currently uses Xilinx ISE and SDK in order to synthesize all of the hardware portions, and to build the C code to a Microblaze target.
+
+The specific implementation for each of these sections within Twill can be seen in the original Twill paper [TODO: TWILL SOURCE] but a general overview will be provided here to give context.
+
+\subsection{Twill Compiler Architecture}
+The Twill Compiler was designed to simplify the DSWP implementation and the Twill compiler pass. As such, the compiler itself is a patchwork of other work along with some custom compiler passes. This can be seen in Figure <TODO: INSERT FIGURE 5.1 FROM DOUG> where each block is a different tool used to transform the input C program into two linked programs, one in C and the other in Verilog.
+
