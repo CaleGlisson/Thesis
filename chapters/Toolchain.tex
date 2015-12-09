@@ -15,4 +15,10 @@ After running the python script, Xilinx ISE can be opened up to the ``uHTheadsCu
 \subsection{Xilinx SDK}
 Exporting the bitstream will open up the Xilinx SDK, which is based on Eclipse. There should be 2 projects open here, one that contains the BSP for the target FPGA device, and the uHThreadsCode project, which is where the software portion from the python script was copied earlier. In main.c, the main function initializes the Twill runtime, starts up the hardware threads, and then executes the program. After execution the number of cycles taken to execute the program and the return value from the ``main'' function in the original program will print over a Serial connection.
 
-To actually program the FPGA, ensure that the hardware is connected to the host, typically through a JTAG connection. Click the ``Program FPGA'' which will display the dialog shown in Figure \figure{Program FPGA Dialog Box}.
+To actually program the FPGA, ensure that the hardware is connected to the host, typically through a JTAG connection. Click the ``Program FPGA'' which will display the dialog shown in Figure \ref{fig:fpga_diag_box}.
+
+\begin{figure}
+	\centering
+		\includegraphics{fpga_dialog}
+	\caption{Program FPGA Dialog Box\label{fig:fpga_diag_box}}
+\end{figure}
